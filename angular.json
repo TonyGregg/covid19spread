@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-admin-free": {
+    "covid-19: {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
