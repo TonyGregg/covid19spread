@@ -1,0 +1,11 @@
+{
+  "/server": {
+    "target": "https://covid19dataservice.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+  }
+}
