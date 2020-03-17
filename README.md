@@ -1,3 +1,48 @@
+# instrutions to publish the page to gh pages
+1. Mirror this git
+
+Open Terminal.
+
+Create a bare clone of the repository.
+
+$ git clone --bare https://github.com/TonyGregg/covid19spread.git
+Mirror-push to the new repository.
+
+$ cd covid19spread.git
+create a new repository in github using your account
+
+$ git push --mirror https://github.com/exampleuser/new-repository.git
+
+Remove the temporary local repository you created earlier.
+
+$ cd ..
+$ rm -rf old-repository.git
+
+git clone your newly created repository.git
+cd newrepo.git
+npm update
+
+2. Add angular-cli-ghpages to your project.
+
+
+ng add angular-cli-ghpages@latest
+Deploy your project to GitHub pages with all default settings. Your project will be automatically built in production mode.
+
+ ng deploy --base-href=/covid19spread/
+Which is the same as:
+
+ng deploy your-angular-project
+Your project should be available at https://<username>.github.io/<repositoryname>.
+
+In this case it is https://tonygregg.github.io/covid19spread/
+Learn more about GitHub pages on the official website.
+Always follow the latest document from https://github.com/angular-schule/angular-cli-ghpages
+During cli-ghpages install, use @latest
+Use --baseref all the time, Otherwise you get 404 error.  for example.
+ ng deploy --base-href=/gramakalvi/
+  After making changes to the code, 1. Run the ng deploy command (above) and 2. Commit and push it to  github for it to reflect
+My sample organization git page is @ https://tonygregg.github.io/gramakalvi/
+
 [![Material Design for Bootstrap](https://mdbootstrap.com/wp-content/uploads/2018/03/admin-angular.png)](https://mdbootstrap.com/freebies/angular-admin-dashboard-template-angular-5-material-design/)
 
 # Bootstrap 4 & Material Design - Angular Admin Dashboard Template
