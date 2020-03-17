@@ -18,6 +18,7 @@ import { StatsCard2Component } from './dashboards/common/stats-card2/stats-card2
 import { Dashboard1Component } from './dashboards/dashboard1/dashboard1.component';
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
+import { StopSpreadComponent } from './stop-spread/stop-spread.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { HelpComponent } from './help/help.component';
     Dashboard1Component,
     Profile1Component,
     HelpComponent,
+    StopSpreadComponent,
 
   ],
   exports: [

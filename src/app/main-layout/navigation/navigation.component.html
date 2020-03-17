@@ -3,10 +3,9 @@
 
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
-
         <a class="logo-wrapper waves-effect">
-            <img src="../../../../assets/img/angular-mdb.png" class="img-fluid" alt="">
-        </a>
+            <img src="../../../../assets/img/banner.png" class="img-fluid" alt="">
+        </a>  
 
         <div class="list-group list-group-flush">
 
@@ -16,7 +15,7 @@
             <a routerLink="profiles/profile1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="user" class="mr-3"></mdb-icon>Profile</a>
             <a routerLink="tables/table1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-                <mdb-icon fas icon="table" class="mr-3"></mdb-icon>Tables</a>
+                <mdb-icon fas icon="table" class="mr-3"></mdb-icon>Charts</a>
             <a routerLink="maps/map1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon far icon="map" class="mr-3"></mdb-icon>Maps</a>
             <a routerLink="nonExistingPath" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
@@ -29,13 +28,15 @@
 
     <!--Navbar-->
     <mdb-navbar [containerInside]="false" SideClass="navbar navbar-expand-lg navbar-light white">
+  <!-- Navbar brand -->
+  <logo class="ml-3">
+    <a class="navbar-brand" href="/">
+        <strong class="black-text">covid19</strong>
+        <strong class="blue-text">&nbsp;Globe</strong>
+    </a>
+</logo>
 
-        <!-- Navbar brand -->
-        <logo class="ml-3">
-            <a class="navbar-brand" href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/">
-                <strong class="blue-text">MDB</strong>
-            </a>
-        </logo>
+
 
         <!-- Collapsible content -->
         <links>
@@ -48,13 +49,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/" target="_blank" mdbWavesEffect>About MDB</a>
+                    <a class="nav-link" href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/" target="_blank" mdbWavesEffect>Analytics</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://mdbootstrap.com/angular/getting-started/" target="_blank" mdbWavesEffect>Free download</a>
+                    <a class="nav-link" href="https://mdbootstrap.com/angular/getting-started/" target="_blank" mdbWavesEffect>Insights</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://mdbootstrap.com/angular/angular-tutorial/" target="_blank" mdbWavesEffect>Free tutorials</a>
+                    <a class="nav-link" href="https://mdbootstrap.com/angular/angular-tutorial/" target="_blank" mdbWavesEffect>Cases</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stop" mdbWavesEffect>Stop Spread</a>
                 </li>
             </ul>
             <!-- Links -->
@@ -73,15 +77,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light"
+                        <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link"
                             target="_blank" mdbWavesEffect>
-                            <mdb-icon fab icon="github" class="mr-2"></mdb-icon>MDB GitHub
+                            <mdb-icon fab icon="github" class="mr-2"></mdb-icon>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="https://mdbootstrap.com/products/angular-ui-kit/" class="ml-1 nav-link border border-light rounded" mdbWavesEffect>
-                            <mdb-icon far icon="gem" class=" left"></mdb-icon> Go Pro</a>
-                    </li>
+                   
                 </ul>
         </links>
         <!-- Collapsible content -->
