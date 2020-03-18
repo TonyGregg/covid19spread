@@ -19,6 +19,9 @@ import { Dashboard1Component } from './dashboards/dashboard1/dashboard1.componen
 import { Profile1Component } from './profile/profile1/profile1.component';
 import { HelpComponent } from './help/help.component';
 import { StopSpreadComponent } from './stop-spread/stop-spread.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { InsightsComponent } from './insights/insights.component';
+import { CasesComponent } from './cases/cases.component';
 
 
 @NgModule({
@@ -46,6 +49,9 @@ import { StopSpreadComponent } from './stop-spread/stop-spread.component';
     Profile1Component,
     HelpComponent,
     StopSpreadComponent,
+    AnalyticsComponent,
+    InsightsComponent,
+    CasesComponent,
 
   ],
   exports: [

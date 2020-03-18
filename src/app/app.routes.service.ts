@@ -1,8 +1,11 @@
 
 import { ModuleWithProviders } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { AnalyticsComponent } from './views/analytics/analytics.component';
+import { CasesComponent } from './views/cases/cases.component';
 import { Dashboard1Component } from './views/dashboards/dashboard1/dashboard1.component';
 import { NotFoundComponent } from './views/errors/not-found/not-found.component';
+import { InsightsComponent } from './views/insights/insights.component';
 import { Map1Component } from './views/maps/map1/map1.component';
 import { ModalsComponent } from './views/modals/modals.component';
 import { Profile1Component } from './views/profile/profile1/profile1.component';
@@ -35,6 +38,9 @@ const routes: Route[] = [
 
   { path: 'modals', component: ModalsComponent},
   { path: 'stop', component: StopSpreadComponent},
+  { path: 'analytics', component: AnalyticsComponent},
+  { path: 'insights', component: InsightsComponent},
+  { path: 'cases', component: CasesComponent},
   { path: '**', component: NotFoundComponent },
 
 ];
