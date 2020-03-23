@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IpFetchService } from 'src/app/shared/services/ip-fetch.service';
+import { GeoHolder } from 'src/app/shared/model/geo/geo-holder';
+import { GeoServiceService } from 'src/app/shared/services/geo-service.service';
 
 @Component({
   selector: 'app-dashboard1',
@@ -6,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard1.component.scss']
 })
 export class Dashboard1Component implements OnInit {
+  ipAddress: String;
+  geoHolder: GeoHolder;
 
   public map: any = { lat: 51.678418, lng: 7.809007 };
-  public chart1Type:string = 'bar';
-  public chart2Type:string = 'pie';
-  public chart3Type:string = 'line';
-  public chart4Type:string = 'radar';
-  public chart5Type:string = 'doughnut';
+  public chart1Type = 'bar';
+  public chart2Type = 'pie';
+  public chart3Type = 'line';
+  public chart4Type = 'radar';
+  public chart5Type = 'doughnut';
 
 
   public chartType = 'line';
@@ -25,7 +30,7 @@ export class Dashboard1Component implements OnInit {
 
   public chartLabels: Array<any> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
 
-  public chartColors:Array<any> = [
+  public chartColors: Array<any> = [
 
   ];
 
@@ -55,11 +60,26 @@ export class Dashboard1Component implements OnInit {
     }
   };
 
-  constructor() {
-  
+  constructor(private ipService: IpFetchService, private geoService: GeoServiceService) {
+    console.log('Inside constructor');
+    
+    this.getGeoHolder();
   }
 
   ngOnInit() {
+    console.log('inside ngOnInit hook');
+    
+    // this.getGeoHolder();
   }
 
+  getGeoHolder()  {
+    this.ipService.getIpAddress().subscribe((res: any) => {
+      this.ipAddress = res.ip;
+      console.log('IP Address : ' + this.ipAddress);
+      this.geoService.getGeoHolder(this.ipAddress).subscribe(geoHolder => {
+        this.geoHolder = geoHolder;
+        console.log('GeoHolder :: ' + JSON.stringify(geoHolder));
+      });
+    });
+  }
 }

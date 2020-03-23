@@ -60,7 +60,7 @@ import { CasesComponent } from './cases/cases.component';
     ModalsComponent,
     Map1Component,
     StatsCardComponent,
-    StatsCard2Component,    
+    StatsCard2Component,
     Dashboard1Component
   ],
   schemas: [NO_ERRORS_SCHEMA]
