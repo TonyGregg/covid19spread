@@ -60,16 +60,12 @@ export class Dashboard1Component implements OnInit {
     }
   };
 
-  constructor(private ipService: IpFetchService, private geoService: GeoServiceService) {
-    console.log('Inside constructor');
-    
-    this.getGeoHolder();
+  constructor(private ipService: IpFetchService, private geoService: GeoServiceService) {    
   }
 
   ngOnInit() {
     console.log('inside ngOnInit hook');
-    
-    // this.getGeoHolder();
+    this.getGeoHolder();
   }
 
   getGeoHolder()  {

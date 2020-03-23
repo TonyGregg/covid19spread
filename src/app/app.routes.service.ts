@@ -1,7 +1,6 @@
 
 import { ModuleWithProviders } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { AnalyticsComponent } from './views/analytics/analytics.component';
 import { CasesComponent } from './views/cases/cases.component';
 import { Dashboard1Component } from './views/dashboards/dashboard1/dashboard1.component';
 import { NotFoundComponent } from './views/errors/not-found/not-found.component';
@@ -11,6 +10,7 @@ import { ModalsComponent } from './views/modals/modals.component';
 import { Profile1Component } from './views/profile/profile1/profile1.component';
 import { StopSpreadComponent } from './views/stop-spread/stop-spread.component';
 import { BasicTableComponent } from './views/tables/basic-table/basic-table.component';
+import { NewsComponent } from './views/news/news.component';
 
 
 const routes: Route[] = [
@@ -38,7 +38,7 @@ const routes: Route[] = [
 
   { path: 'modals', component: ModalsComponent},
   { path: 'stop', component: StopSpreadComponent},
-  { path: 'analytics', component: AnalyticsComponent},
+  { path: 'news', component: NewsComponent},
   { path: 'insights', component: InsightsComponent},
   { path: 'cases', component: CasesComponent},
   { path: '**', component: NotFoundComponent },

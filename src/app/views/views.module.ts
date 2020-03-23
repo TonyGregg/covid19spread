@@ -22,6 +22,7 @@ import { StopSpreadComponent } from './stop-spread/stop-spread.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { InsightsComponent } from './insights/insights.component';
 import { CasesComponent } from './cases/cases.component';
+import { NewsComponent } from './news/news.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { CasesComponent } from './cases/cases.component';
     AnalyticsComponent,
     InsightsComponent,
     CasesComponent,
+    NewsComponent,
 
   ],
   exports: [
