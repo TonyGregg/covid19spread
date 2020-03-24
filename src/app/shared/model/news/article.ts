@@ -10,8 +10,8 @@ export class Article {
      * @param publishedAt - Date and Time
      * @param source - Source which contains id and name
      */
-    constructor(public author: String, public title: String, public description: String, public url: String,
-        public urlToImage: String, public publishedAt: Date, public content: String,  public source: Source) {
+    constructor(public source: Source, public author: String, public title: String, public description: String, public url: String,
+        public urlToImage: String, public publishedAt: Date, public content: String) {
     }
     /**
      * Model-adapter pattern to efficiently map the API output to the model
@@ -19,7 +19,7 @@ export class Article {
      * @returns Article object
      */
     static adapt(item: any): Article {
-        return new Article(item.author, item.title, item.description, item.url, item.urlToImage, item.publishedAt,
-            item.content, new Source(item.source.id, item.source.name));
+        return new Article( new Source(item.source.id, item.source.name), item.author, item.title, item.description,
+            item.url, item.urlToImage, item.publishedAt, item.content);
     }
 }

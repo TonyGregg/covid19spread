@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Article } from '../model/news/article';
+import { NewsHolder } from '../model/news/news-holder';
 
 @Injectable({
   providedIn: 'root'
@@ -42,14 +43,34 @@ export class NewsApiService {
   /**
    * Get all the top headlines from the back-end service
    */
+
+
+  getNewsHeadLineHolder(country: String): Observable<NewsHolder> {
+    const topic = 'coronavirus AND ';
+    const country_specific_url = NewsApiService.URL + topic + country + '&sortBy=popularity&apiKey=' + NewsApiService.API_KEY;
+    // this.log('URL used ' + country_specific_url);
+    return this.http.get<any>(country_specific_url).pipe(
+      tap(
+        () => {
+          this.log('Fetched one NewsHolder ');
+          // this.log(JSON.stringify(data));
+        }
+        ),
+        catchError(this.handleError<NewsHolder[]>('getNewsHolder() = ${country}'))
+    );
+  }
+
   getTopHeadlines(country: String): Observable<Article[]> {
-    console.log(NewsApiService.URL + '/' + country);
+    // console.log(NewsApiService.URL + '/' + country);
         // TODO
     // return of([]);
     const topic = 'coronavirus AND ';
-    const country_specific_url = NewsApiService.URL + topic + country + 'apiKey=' + NewsApiService.API_KEY;
+    const country_specific_url = NewsApiService.URL + topic + country + '&sortBy=popularity&apiKey=' + NewsApiService.API_KEY;
     return this.http.get<any[]>(country_specific_url).pipe(
       // Adapt each item in the raw data array. It uses Model-Adapter pattern
+      tap(
+        // data => this.log(JSON.stringify(data))
+      ),
       map(data => data.map(Article.adapt)),
         catchError(this.handleError<Article[]>('getTopHeadlines() Spring REST API '))
     );

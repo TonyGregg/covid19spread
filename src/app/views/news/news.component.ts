@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsHolder } from 'src/app/shared/model/news/news-holder';
+import { NewsApiService } from 'src/app/shared/services/news-api.service';
 
 @Component({
   selector: 'app-news',
@@ -6,23 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
-  constructor() { }
+  newsHolder: NewsHolder;
+  country: String;
+  constructor(private newsService: NewsApiService) { }
 
   ngOnInit(): void {
+    this.country = 'US';
+    this.newsService.getNewsHeadLineHolder(this.country).subscribe(returnedNewsHolder => {
+      this.newsHolder = returnedNewsHolder;
+      // console.log('Returned articles ' + JSON.stringify(this.newsHolder.articles));
+      // console.log('# of articles ' + this.newsHolder.articles.length);
+    });
   }
 
 }
