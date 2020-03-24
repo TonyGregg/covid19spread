@@ -1,29 +1,38 @@
-<mdb-card>
-  <mdb-card-body *ngFor="let article of newsHolder.articles">
-    <mdb-card-title>
-      <h5>{{article.title}}</h5>
-    </mdb-card-title>
-    <mdb-card-title>
-      <div class="text-center">
-        <img src="{{article.urlToImage}}" class="rounded" alt="...">
+<div class="row">
+  <div class="col-md-8">
+    <!--Card-->
+    <mdb-card cascade="true" wider="true" *ngFor="let article of newsHolder.articles">
+
+      <!--Card image-->
+      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+        <mdb-card-img src="{{article.urlToImage}}"></mdb-card-img>
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
       </div>
-      <h5>{{article.source.name}}</h5>
-      <h6 class="text-muted mb-2">{{article.description}}</h6>
-    </mdb-card-title>
-    <mdb-card-text>
-      {{article.content}}
-    </mdb-card-text>
-    <a href="{{article.url}}" class="card-link" target="_blank" > More..</a>
-  </mdb-card-body>
-  <!-- <mdb-card-body>
-    <mdb-card-title>
-      <h5>Panel title</h5>
-      <h6 class="text-muted mb-2">Panel subtitle</h6>
-    </mdb-card-title>
-    <mdb-card-text>
-      Some quick example text to build on the panel title and make up the bulk of the panel's content.
-    </mdb-card-text>
-    <a href="#!" class="card-link">Card link</a>
-    <a href="#!" class="card-link">Another link</a>
-  </mdb-card-body> -->
-</mdb-card>
+      <!--/Card image-->
+
+      <mdb-card-body cascade="true" class="text-center">
+        <!--Card content-->
+        <!--Title-->
+        <h4 class="card-title">
+          <strong>{{article.title}}</strong>
+        </h4>
+        <h5 class="indigo-text">
+          <strong>{{article.source.name}}</strong>
+        </h5>
+
+        <mdb-card-text>
+          {{article.content}}
+        </mdb-card-text>
+
+        <a href="{{article.url}}" class="card-link" target="_blank" > Read more..</a>
+
+      </mdb-card-body>
+      <!--/.Card content-->
+
+    </mdb-card>
+    <!--/.Card-->
+  </div>
+  </div>
+

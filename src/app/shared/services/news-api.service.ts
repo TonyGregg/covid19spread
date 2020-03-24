@@ -10,7 +10,7 @@ import { NewsHolder } from '../model/news/news-holder';
 })
 export class NewsApiService {
   static API_KEY = '89830ec2efd04249868c73af74126511';
-  static URL = 'https://newsapi.org/v2/top-headlines?q=';
+  static URL = 'https://newsapi.org/v2/top-headlines?';
     /**
    * log messages to console
    */
@@ -46,9 +46,10 @@ export class NewsApiService {
 
 
   getNewsHeadLineHolder(country: String): Observable<NewsHolder> {
-    const topic = 'coronavirus AND ';
-    const country_specific_url = NewsApiService.URL + topic + country + '&sortBy=popularity&apiKey=' + NewsApiService.API_KEY;
-    // this.log('URL used ' + country_specific_url);
+    const q = '&q=coronavirus';
+    this.log('Country ' + country);
+    const country_specific_url = NewsApiService.URL + 'country=' + country + q + '&sortBy=popularity&apiKey=' + NewsApiService.API_KEY;
+    this.log('URL used ' + country_specific_url);
     return this.http.get<any>(country_specific_url).pipe(
       tap(
         () => {

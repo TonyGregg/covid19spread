@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IpFetchService } from 'src/app/shared/services/ip-fetch.service';
 import { GeoHolder } from 'src/app/shared/model/geo/geo-holder';
 import { GeoServiceService } from 'src/app/shared/services/geo-service.service';
+import { IpFetchService } from 'src/app/shared/services/ip-fetch.service';
 
 @Component({
   selector: 'app-dashboard1',
@@ -60,7 +60,7 @@ export class Dashboard1Component implements OnInit {
     }
   };
 
-  constructor(private ipService: IpFetchService, private geoService: GeoServiceService) {    
+  constructor(private ipService: IpFetchService, private geoService: GeoServiceService) {
   }
 
   ngOnInit() {

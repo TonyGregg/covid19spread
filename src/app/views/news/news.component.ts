@@ -13,7 +13,7 @@ export class NewsComponent implements OnInit {
   constructor(private newsService: NewsApiService) { }
 
   ngOnInit(): void {
-    this.country = 'US';
+    this.country = 'us';
     this.newsService.getNewsHeadLineHolder(this.country).subscribe(returnedNewsHolder => {
       this.newsHolder = returnedNewsHolder;
       // console.log('Returned articles ' + JSON.stringify(this.newsHolder.articles));
