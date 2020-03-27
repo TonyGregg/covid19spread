@@ -1,51 +1,64 @@
 <!-- Heading -->
-<mdb-card class="mb-4 wow fadeIn">
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
 
-    <!--Card content-->
-    <mdb-card-body class="d-sm-flex justify-content-between">
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Covid19</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect>US<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>India</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>News</a>
+        </li>
+      </ul>
+      <!-- Links -->
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link">
+            <mdb-icon fab icon="twitter"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <mdb-icon fab icon="google-plus"></mdb-icon>
+          </a>
+        </li>
+        
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
 
-        <h4 class="mb-sm-0 pt-3">
-            <a href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Home&nbsp;</a>
-            <span>/&nbsp;</span>
-            <span>{{geoHolder.country_code}}</span>
-        </h4>
-
-        <form class="d-flex md-form justify-content-center my-0">
-            <!-- Default input -->
-            <input type="search" placeholder="Search by Country" aria-label="Search" class="form-control" mdbInput>
-            <button mdbBtn color="primary" size="sm" class="my-0 p" type="submit">
-                <mdb-icon fas icon="search"></mdb-icon>
-            </button>
-
-        </form>
-
-    </mdb-card-body>
-
-</mdb-card>
 <!-- Heading -->
 
-
-<app-stats-card></app-stats-card>
-
-
 <!--Grid row-->
-<div class="row wow fadeIn mt-5">
 
     <!--Grid column-->
-    <div class="col-md-9 mb-4">
+    <div class="col-md-16">
 
         <!--Card-->
         <mdb-card>
-
             <!--Card content-->
             <mdb-card-body>
-
-                <div style="display: block">
-                    <canvas mdbChart [chartType]="chart1Type" [datasets]="chartDatasets" [labels]="chartLabels"
-                            [colors]="chartColors" [options]="chartOptions"
-                            [legend]="true">
-                    </canvas>
-                </div>
+                <fusioncharts
+                [width]="width"
+                [height]="height"
+                [type]="type"
+                [dataFormat]="dataFormat"
+                [dataSource]="dataSource">
+              </fusioncharts>
             </mdb-card-body>
 
         </mdb-card>
@@ -53,242 +66,7 @@
 
     </div>   
 
-</div>
-<!--Grid row-->
-
-<!--Grid row-->
-<div class="row wow fadeIn">
-
-    <!--Grid column-->
-    <div class="col-md-6 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <!-- Table  -->
-                <table class="table table-hover">
-                    <!-- Table head -->
-                    <thead class="blue-grey lighten-4">
-                    <tr>
-                        <th>#</th>
-                        <th>Lorem</th>
-                        <th>Ipsum</th>
-                        <th>Dolor</th>
-                    </tr>
-                    </thead>
-                    <!-- Table head -->
-
-                    <!-- Table body -->
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Cell 1</td>
-                        <td>Cell 2</td>
-                        <td>Cell 3</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cell 4</td>
-                        <td>Cell 5</td>
-                        <td>Cell 6</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Cell 7</td>
-                        <td>Cell 8</td>
-                        <td>Cell 9</td>
-                    </tr>
-                    </tbody>
-                    <!-- Table body -->
-                </table>
-                <!-- Table  -->
-
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-md-6 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <!-- Table  -->
-                <table class="table table-hover">
-                    <!-- Table head -->
-                    <thead class="blue lighten-4">
-                    <tr>
-                        <th>#</th>
-                        <th>Lorem</th>
-                        <th>Ipsum</th>
-                        <th>Dolor</th>
-                    </tr>
-                    </thead>
-                    <!-- Table head -->
-
-                    <!-- Table body -->
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Cell 1</td>
-                        <td>Cell 2</td>
-                        <td>Cell 3</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cell 4</td>
-                        <td>Cell 5</td>
-                        <td>Cell 6</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Cell 7</td>
-                        <td>Cell 8</td>
-                        <td>Cell 9</td>
-                    </tr>
-                    </tbody>
-                    <!-- Table body -->
-                </table>
-                <!-- Table  -->
-
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
-
-</div>
-<!--Grid row-->
-
-<!--Grid row-->
-<div class="row wow fadeIn">
-
-    <!--Grid column-->
-    <div class="col-lg-4 col-md-12 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!-- Card header -->
-            <div class="card-header">Line chart</div>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <div style="display: block">
-                    <canvas mdbChart [chartType]="chart3Type" [datasets]="chartDatasets" [labels]="chartLabels"
-                            [colors]="chartColors" [options]="chartOptions"
-                            [legend]="true">
-                    </canvas>
-                </div>
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-lg-4 col-md-6 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!-- Card header -->
-            <div class="card-header">Radar Chart</div>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <div style="display: block">
-                    <canvas mdbChart [chartType]="chart4Type" [datasets]="chartDatasets" [labels]="chartLabels"
-                            [colors]="chartColors" [options]="chartOptions"
-                            [legend]="true">
-                    </canvas>
-                </div>
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-lg-4 col-md-6 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!-- Card header -->
-            <div class="card-header">Doughnut Chart</div>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <div style="display: block">
-                    <canvas mdbChart [chartType]="chart5Type" [datasets]="chartDatasets" [labels]="chartLabels"
-                            [colors]="chartColors" [options]="chartOptions"
-                            [legend]="true">
-                    </canvas>
-                </div>
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
-
-</div>
-<!--Grid row-->
-
-<!--Grid row-->
-<div class="row wow fadeIn">
-
-    <!--Grid column-->
-    <div class="col-md-6 mb-4">
-
-        <!--Card-->
-        <mdb-card>
-
-            <!-- Card header -->
-            <div class="card-header">Google map</div>
-
-            <!--Card content-->
-            <mdb-card-body>
-
-                <!--Google map-->
-                <div class="card-body text-center">
-                    <agm-map [latitude]="map.lat" [longitude]="map.lng" [mapTypeId]="'roadmap'" style="height: 300px">
-                        <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
-                    </agm-map>
-
-                </div>
-            </mdb-card-body>
-
-        </mdb-card>
-        <!--/.Card-->
-
-    </div>
-    <!--Grid column-->
 
 
-
-</div>
-<!--Grid row-->
 
 

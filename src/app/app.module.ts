@@ -1,19 +1,17 @@
 import { AgmCoreModule } from '@agm/core';
+// main layout
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes.service';
-
-import { ViewsModule } from './views/views.module';
 import { SharedModule } from './shared/shared.module';
-import { ErrorModule } from './views/errors/error.module';
+import { ViewsModule } from './views/views.module';
 
-// main layout
-import { NavigationModule } from './main-layout/navigation/navigation.module';
-import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     BrowserModule,
     BrowserAnimationsModule,
-    NavigationModule,
     AppRoutes,
     RouterModule,
     FormsModule,
     SharedModule,
     ViewsModule,
-    ErrorModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

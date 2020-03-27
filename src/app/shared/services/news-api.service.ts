@@ -11,7 +11,7 @@ import { NewsHolder } from '../model/news/news-holder';
 export class NewsApiService {
   static API_KEY = '89830ec2efd04249868c73af74126511';
   static URL = 'https://newsapi.org/v2/top-headlines?';
-    /**
+  /**
    * log messages to console
    */
   private log(message: string) {
