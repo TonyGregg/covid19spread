@@ -3,15 +3,14 @@ import { Tracker } from 'src/app/shared/model/tracker';
 import { DailyTrackerService } from 'src/app/shared/services/daily-tracker.service';
 
 @Component({
-  selector: 'app-dashboard1',
-  templateUrl: './dashboard1.component.html',
-  styleUrls: ['./dashboard1.component.scss']
+  selector: 'app-chart',
+  templateUrl: './chart.component.html',
+  styleUrls: ['./chart.component.css']
 })
-export class Dashboard1Component implements OnInit {
-  ipAddress: String;
+export class ChartComponent implements OnInit {
   country = 'US';
   tracker: Tracker;
-  width = 900;
+  width = '85%';
   height = 400;
   type = 'msline';
   dataFormat = 'json';
@@ -19,9 +18,9 @@ export class Dashboard1Component implements OnInit {
   public dataSource: any;
 
   constructor(private dailyTrackerService: DailyTrackerService) {
-    // STEP 3 - Chart Configuration
   }
-  ngOnInit() {
+
+  ngOnInit(): void {
     this.country = 'US';
     this.dailyTrackerService.getDailyTracker(this.country).subscribe(returnedTracker => {
       this.tracker = returnedTracker;
@@ -56,4 +55,5 @@ export class Dashboard1Component implements OnInit {
       this.dataSource = dataSource;
     });
   }
+
 }

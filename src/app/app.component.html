@@ -1,11 +1,44 @@
+<!-- Heading -->
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="true">
 
-<app-navigation></app-navigation>
-
-<main [ngClass]="{'py-0 px-0 my-0 mx-0': specialPage}"  class="mx-lg-5" >
-    
-  <div class="mt-5">
-    <router-outlet></router-outlet>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="/">Covid19</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect>US<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>India</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink = "/news" mdbWavesEffect>News</a>
+        </li>
+      </ul>
+      <!-- Links -->
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link">
+            <mdb-icon fab icon="twitter"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <mdb-icon fab icon="google-plus"></mdb-icon>
+          </a>
+        </li>
+        
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <div class="container">
+      <router-outlet></router-outlet>
   </div>
-</main>
-
-<app-footer></app-footer>

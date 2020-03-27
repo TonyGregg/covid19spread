@@ -13,17 +13,10 @@ import * as charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { FooterComponent } from '../main-layout/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
-import { AnalyticsComponent } from './analytics/analytics.component';
-import { CasesComponent } from './cases/cases.component';
-import { Dashboard1Component } from './dashboards/dashboard1/dashboard1.component';
-import { HelpComponent } from './help/help.component';
-import { InsightsComponent } from './insights/insights.component';
+import { ChartComponent } from './chart/chart.component';
+import { LayoutComponent } from './layout/layout.component';
 import { NewsComponent } from './news/news.component';
-import { Profile1Component } from './profile/profile1/profile1.component';
 import { StopSpreadComponent } from './stop-spread/stop-spread.component';
-
-
-
 
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 
@@ -44,19 +37,13 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
   ],
   declarations: [
     FooterComponent,
-    Dashboard1Component,
-    Profile1Component,
-    HelpComponent,
     StopSpreadComponent,
-    AnalyticsComponent,
-    InsightsComponent,
-    CasesComponent,
     NewsComponent,
-
+    LayoutComponent,
+    ChartComponent
   ],
   exports: [
-    FooterComponent,
-    Dashboard1Component
+    FooterComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
