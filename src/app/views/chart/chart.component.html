@@ -1,5 +1,9 @@
  <!--Grid column-->
- <div class="row">
+ <div class="chart-button-row">
+     <button (click)="onUSCountryClick()" mdbBtn type="button" color = "danger" mdbWavesEffect>US</button>
+     <button (click)="onIndiaCountryClick()" mdbBtn type="button" color = "info" mdbWavesEffect>India</button>
+ </div>
+ <div class="row" [hidden] = "!showUsChart">
 
     <!--Card-->
         <!--Card content-->
@@ -8,7 +12,24 @@
             [height]="height"
             [type]="type"
             [dataFormat]="dataFormat"
-            [dataSource]="dataSource">
+            [dataSource]="dataSource"
+            >
+          </fusioncharts>
+
+    <!--/.Card-->
+
+</div>  
+<div class="row" [hidden] = "showUsChart">
+
+    <!--Card-->
+        <!--Card content-->
+            <fusioncharts
+            [width]="width"
+            [height]="height"
+            [type]="type"
+            [dataFormat]="dataFormat"
+            [dataSource]="indiaDataSource"
+            >
           </fusioncharts>
 
     <!--/.Card-->

@@ -8,7 +8,7 @@ import { DailyTrackerService } from 'src/app/shared/services/daily-tracker.servi
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
-  country = 'US';
+  country = '';
   tracker: Tracker;
   width = '85%';
   height = 400;
@@ -16,12 +16,15 @@ export class ChartComponent implements OnInit {
   dataFormat = 'json';
   // Chart Configuration
   public dataSource: any;
+  public indiaDataSource: any;
+  showUsChart = true;
 
   constructor(private dailyTrackerService: DailyTrackerService) {
   }
 
   ngOnInit(): void {
     this.country = 'US';
+    console.log('Country selected ' + this.country);
     this.dailyTrackerService.getDailyTracker(this.country).subscribe(returnedTracker => {
       this.tracker = returnedTracker;
       // console.log('Returned tracker ' + JSON.stringify(this.tracker));
@@ -53,7 +56,52 @@ export class ChartComponent implements OnInit {
         ]
       };
       this.dataSource = dataSource;
+    }); // end of US
+
+    this.dailyTrackerService.getDailyTracker('in').subscribe(returnedTracker => {
+      this.tracker = returnedTracker;
+      // console.log('Returned tracker ' + JSON.stringify(this.tracker));
+      const indiaDataSource = {
+        chart: {
+          // Set the chart caption
+          caption: 'Number of cases in India' ,
+          yaxisname: '# of cases',
+          subcaption: 'Last 30 days',
+          showhovereffect: '1',
+          drawcrossline: '1',
+          plottooltext: '$seriesName : <b>$value</b>',
+          theme: 'fusion'
+        },
+        categories: [
+          {
+            category: returnedTracker.labels
+          }
+        ],
+        dataSet: [
+          {
+            seriesName: 'Cumulative Cases',
+            data: returnedTracker.cumulativeValues
+          },
+          {
+            seriesName: 'New Cases',
+            data: returnedTracker.newValues
+          }
+        ]
+      };
+      this.indiaDataSource = indiaDataSource;
     });
+  }
+  onUSCountryClick() {
+    console.log('US is selected');
+    this.country = 'US';
+    this.showUsChart = true;
+
+  }
+  onIndiaCountryClick() {
+    console.log('Selected India');
+    this.country = 'India';
+    this.showUsChart = false;
+    // this.chart.chartType('bar2d');
   }
 
 }
