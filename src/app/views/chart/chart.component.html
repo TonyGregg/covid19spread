@@ -35,12 +35,20 @@
     <!--/.Card-->
 
 </div>
-    <p class="text-primary">
-        At end of  <select class="form-select-small" (change) = "dayValueChanged($event)" >
+    <p class="text-dark">
+        At the end of  <select class="form-select-small" (change) = "dayValueChanged($event)" >
             <option *ngFor = "let day of daysArray" [value] = "day.value">
                 {{day.viewValue}}
             </option>
-        </select>&nbsp;th day, it is expected to reach : </p>
-        <p class="text-warning">{{getEstimatedCount() | number: '1.0-0'}}</p>
+        </select>&nbsp; day(s), total count is expected to reach : <span class="text-danger">{{getEstimatedCount() | number: '1.0-0'}}</span> </p>
+
+        <blockquote class="blockquote bq-primary">
+            <p class="bq-title">Disclaimer:</p>
+            <p class="mb-0"> The projection used here is based on the data available, 
+                importantly this is just an estimate. Actual county may vary.</p>
+                <footer class="blockquote-footer mb-3">Antony G Greg</footer> 
+
+            
+        </blockquote>
 
     

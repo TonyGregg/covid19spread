@@ -32,6 +32,7 @@ export class ChartComponent implements OnInit {
     {value: 5, viewValue: '4'},
     {value: 6, viewValue: '5'},
     {value: 7, viewValue: '6'},
+    {value: 8, viewValue: '7'},
   ];
   nDays = 1;
   showEstimatedCount = false;
