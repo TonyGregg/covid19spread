@@ -34,4 +34,13 @@
 
     <!--/.Card-->
 
-</div>  
+</div>
+    <p class="text-primary">
+        At end of  <select class="form-select-small" (change) = "dayValueChanged($event)" >
+            <option *ngFor = "let day of daysArray" [value] = "day.value">
+                {{day.viewValue}}
+            </option>
+        </select>&nbsp;th day, it is expected to reach : </p>
+        <p class="text-warning">{{getEstimatedCount() | number: '1.0-0'}}</p>
+
+    
