@@ -53,7 +53,9 @@ export class ChartComponent implements OnInit {
           // Set the chart caption
           caption: 'Number of cases in ' + this.country,
           yaxisname: '# of cases',
-          subcaption: 'Last 30 days',
+          decimals: 2,
+          thousandSeparatorPosition: '2,3',
+          subcaption: 'Since 02/27',
           showhovereffect: '1',
           drawcrossline: '1',
           plottooltext: '$seriesName : <b>$value</b>',
@@ -86,7 +88,7 @@ export class ChartComponent implements OnInit {
           // Set the chart caption
           caption: 'Number of cases in India' ,
           yaxisname: '# of cases',
-          subcaption: 'Last 30 days',
+          subcaption: 'Since 03/03',
           showhovereffect: '1',
           drawcrossline: '1',
           plottooltext: '$seriesName : <b>$value</b>',
@@ -145,7 +147,7 @@ export class ChartComponent implements OnInit {
       //   ' cum[i-1] ' + tracker.cumulativeValues[i - 1].value + ' day G.F ' + dayGf);
       gfTotal +=  dayGf;
     }
-    const gf = gfTotal / (tracker.cumulativeValues.length - 1); // average
+    const gf = (gfTotal / (tracker.cumulativeValues.length - 1) - 0.025); // average
     // console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
     const projectedCount =  lastCumulativeCount * (Math.pow(gf, this.nDays));
     console.log('projected count ' + projectedCount);
