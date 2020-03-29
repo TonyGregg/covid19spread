@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit {
   country = '';
   tracker: Tracker;
   indiaTracker: Tracker;
-  width = '85%';
+  width = '78%';
   height = 400;
   type = 'msline';
   dataFormat = 'json';
@@ -136,7 +136,7 @@ export class ChartComponent implements OnInit {
        tracker = this.indiaTracker;
     }
     const lastCumulativeCount = tracker.cumulativeValues[tracker.cumulativeValues.length - 2].value;
-    console.log('value a : total count latest ' + lastCumulativeCount);
+    // console.log('value a : total count latest ' + lastCumulativeCount);
     let dayGf = 0.0;
     let gfTotal = 0.0;
     for (let i = tracker.cumulativeValues.length - 2; i > 0; i--) {
@@ -146,7 +146,7 @@ export class ChartComponent implements OnInit {
       gfTotal +=  dayGf;
     }
     const gf = gfTotal / (tracker.cumulativeValues.length - 1); // average
-    console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
+    // console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
     const projectedCount =  lastCumulativeCount * (Math.pow(gf, this.nDays));
     console.log('projected count ' + projectedCount);
     this.estimatedCount = projectedCount;
