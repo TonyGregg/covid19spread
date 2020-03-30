@@ -24,6 +24,10 @@ export class ChartComponent implements OnInit {
   public dataSource: any;
   public indiaDataSource: any;
   showUsChart = true;
+  usTotalConfirmedCases = 0;
+  indiaTotalConfirmedCases = 0;
+  usNewCasesToday = 0;
+  indiaNewCasesToday = 0;
   daysArray: Day[] = [
     {value: 1, viewValue: '0'},
     {value: 2, viewValue: '1'},
@@ -47,6 +51,8 @@ export class ChartComponent implements OnInit {
     console.log('Country selected ' + this.country);
     this.dailyTrackerService.getDailyTracker(this.country).subscribe(returnedTracker => {
       this.tracker = returnedTracker;
+      this.usTotalConfirmedCases = this.tracker.cumulativeValues[this.tracker.cumulativeValues.length - 1].value;
+      this.usNewCasesToday = this.tracker.newValues[this.tracker.newValues.length - 1].value;
       // console.log('Returned tracker ' + JSON.stringify(this.tracker));
       const dataSource = {
         chart: {
@@ -83,6 +89,8 @@ export class ChartComponent implements OnInit {
     this.dailyTrackerService.getDailyTracker('in').subscribe(returnedTracker => {
       this.indiaTracker = returnedTracker;
       // console.log('Returned tracker ' + JSON.stringify(this.tracker));
+      this.indiaTotalConfirmedCases = this.indiaTracker.cumulativeValues[this.indiaTracker.cumulativeValues.length - 1].value;
+      this.indiaNewCasesToday = this.indiaTracker.newValues[this.indiaTracker.newValues.length - 1].value;
       const indiaDataSource = {
         chart: {
           // Set the chart caption

@@ -3,19 +3,20 @@
      <button (click)="onUSCountryClick()" mdbBtn type="button" color = "danger" mdbWavesEffect>US</button>
      <button (click)="onIndiaCountryClick()" mdbBtn type="button" color = "info" mdbWavesEffect>India</button>
  </div>
- <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        One of three columns
-      </div>
-      <div class="col-sm">
-        One of three columns
-      </div>
-      <div class="col-sm">
-        One of three columns
-      </div>
-    </div>
-  </div>
+
+ <div class="row" [hidden] = "!showUsChart">
+  <div class="d-inline p-2 bg-danger text-white" [hidden] = "!showUsChart"> Total : {{usTotalConfirmedCases | number: '1.0-0'}}</div>
+  <div class="d-inline p-2 bg-dark  text-white" [hidden] = "!showUsChart"> New : {{usNewCasesToday | number: '1.0-0'}}</div>
+  
+ </div>
+ <div class="row" [hidden] = "showUsChart">
+  <div class="d-inline p-2 bg-info text-white" [hidden] = "!showUsChart"> Total : {{indiaTotalConfirmedCases | number: '1.0-0'}}</div>
+  <div class="d-inline p-2 bg-dark  text-white" [hidden] = "!showUsChart"> New : {{indiaNewCasesToday | number: '1.0-0'}}</div>
+  
+ </div>
+ <p>
+
+ </p>
  <div class="row" [hidden] = "!showUsChart">
 
     <!--Card-->
