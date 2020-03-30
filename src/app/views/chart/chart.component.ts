@@ -91,6 +91,7 @@ export class ChartComponent implements OnInit {
           subcaption: 'Since 03/03',
           showhovereffect: '1',
           drawcrossline: '1',
+          orientation: 'right',
           plottooltext: '$seriesName : <b>$value</b>',
           theme: 'fusion'
         },
@@ -147,7 +148,7 @@ export class ChartComponent implements OnInit {
       //   ' cum[i-1] ' + tracker.cumulativeValues[i - 1].value + ' day G.F ' + dayGf);
       gfTotal +=  dayGf;
     }
-    const gf = (gfTotal / (tracker.cumulativeValues.length - 1) - 0.025); // average
+    const gf = (gfTotal / (tracker.cumulativeValues.length - 1) - 0.035); // average
     // console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
     const projectedCount =  lastCumulativeCount * (Math.pow(gf, this.nDays));
     console.log('projected count ' + projectedCount);

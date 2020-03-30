@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private location: Location
+    private location: Location,
+    private titleService: Title
   ) {
 
     this.router.events.subscribe((route:any) => {
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Covid-19 count projection');
   }
 
   goBack(): void {
