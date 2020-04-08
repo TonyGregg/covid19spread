@@ -147,25 +147,27 @@ export class ChartComponent implements OnInit {
        tracker = this.indiaTracker;
     }
     const lastCumulativeCount = tracker.cumulativeValues[tracker.cumulativeValues.length - 2].value;
+    const lastNewValueCount = tracker.newValues[tracker.newValues.length - 2].value;
+
     // console.log('value a : total count latest ' + lastCumulativeCount);
     let dayGf = 0.0;
     let gfTotal = 0.0;
-    for (let i = tracker.cumulativeValues.length - 2; i > 0; i--) {
-      dayGf = tracker.cumulativeValues[i].value / tracker.cumulativeValues[i - 1].value;
+    for (let i = tracker.newValues.length - 2; i > 0; i--) {
+      dayGf = tracker.newValues[i].value / tracker.newValues[i - 1].value;
       // console.log('i = ' + i + ' cum[i] ' + tracker.cumulativeValues[i].value +
       //   ' cum[i-1] ' + tracker.cumulativeValues[i - 1].value + ' day G.F ' + dayGf);
       gfTotal +=  dayGf;
     }
-    const gf = (gfTotal / (tracker.cumulativeValues.length - 1) - 0.035); // average
+    const gf = (gfTotal / (tracker.newValues.length - 1) - 0.35); // average
     // console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
-    const projectedCount =  lastCumulativeCount * (Math.pow(gf, this.nDays));
-    console.log('projected count ' + projectedCount);
-    this.estimatedCount = projectedCount;
-    return projectedCount;
+    const projectedCount =  lastNewValueCount * (Math.pow(gf, this.nDays));
+    // console.log('projected count ' + projectedCount);
+    this.estimatedCount = lastCumulativeCount + projectedCount;
+    return this.estimatedCount;
   }
   dayValueChanged(ob: any) {
     this.nDays = ob.target.value;
-    console.log('day value got changed ' + this.nDays);
+    // console.log('day value got changed ' + this.nDays);
     this.getEstimatedCount();
   }
 }
