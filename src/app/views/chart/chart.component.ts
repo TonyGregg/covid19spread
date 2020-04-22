@@ -158,7 +158,7 @@ export class ChartComponent implements OnInit {
       //   ' cum[i-1] ' + tracker.cumulativeValues[i - 1].value + ' day G.F ' + dayGf);
       gfTotal +=  dayGf;
     }
-    const gf = (gfTotal / (tracker.newValues.length - 1) - 0.35); // average
+    const gf = (gfTotal / (tracker.newValues.length - 1) - 0.05); // average
     // console.log( 'G.F Total ' + gfTotal + ' G.F ' + gf);
     const projectedCount =  lastNewValueCount * (Math.pow(gf, this.nDays));
     // console.log('projected count ' + projectedCount);
